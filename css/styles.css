@@ -262,13 +262,13 @@ img {
 }
 
 .work-text {
-  padding-top: 27px;
-  padding-bottom: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 70px;
   font-weight: 700;
   line-height: 1.14;
-  text-align: center;
   text-transform: uppercase;
   background: rgba(47, 48, 58, 0.8);
   color: var(--second-title-color);
@@ -408,8 +408,7 @@ img {
   border-radius: 4px;
   transition: background-color var(--time) var(--timing-function),
     color var(--time) var(--timing-function),
-    box-shadow var(--time) var(--timing-function),
-    border-radius var(--time) var(--timing-function);
+    box-shadow var(--time) var(--timing-function);
 }
 .filter-btn:hover,
 .filter-btn:focus {
@@ -417,7 +416,6 @@ img {
   color: var(--second-title-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
 }
 
 /* Портфолио Примеры Работ */
@@ -477,6 +475,7 @@ img {
   left: 0;
   padding: 63px 24px;
   height: 100%;
+  font-size: 18px;
   line-height: 1.56;
   overflow: auto;
   color: var(--second-title-color);
@@ -570,13 +569,15 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
-  transition: opacity 1000ms linear, visibility 1000ms linear;
+  transition: opacity var(--time) var(--timing-function),
+    visibility var(--time) var(--timing-function);
 }
 .modal {
+  transition: transform var(--time) var(--timing-function);
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.1);
   width: 528px;
   min-height: 581px;
   background-color: var(--second-title-color);
@@ -591,6 +592,7 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   border-radius: 50%;
+  cursor: pointer;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -602,4 +604,7 @@ img {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
 }
